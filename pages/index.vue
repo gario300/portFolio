@@ -278,7 +278,7 @@ export default {
       }
       setTimeout(() => {
         this.jobs.splice(index, 1, newElement)
-      }, 200)
+      }, !over ? 200 : 0)
     }
   }
 }

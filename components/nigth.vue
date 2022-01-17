@@ -22,7 +22,9 @@ background: linear-gradient(0deg, #383d95, #040d30 90%) no-repeat #383d95;
 margin: 0;
 height: 100vh;
 position: absolute;
-width: 100%
+max-width: 100%;
+width: 100%;
+overflow-x: hidden;
 }
 #layers {
 height: 200px;

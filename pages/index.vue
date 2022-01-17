@@ -1,11 +1,7 @@
 <template>
-  <div>
-    <div
-      style="width: 100%;"
-    >
-      <Nigth v-if="nigth && nigth !== ''" />
-      <Day v-if="!nigth && nigth !== ''" />
-    </div>
+  <div style="max-width: 100%; overflow: hidden;">
+    <Nigth v-if="nigth && nigth !== ''" />
+    <Day v-if="!nigth && nigth !== ''" />
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-half">
@@ -138,16 +134,16 @@
                 </h2>
                 <div
                   v-for="(expertise, index) in expertises"
-                  class="columns is-vcentered is-mobile"
+                  class="columns is-vcentered is-mobile is-gapless"
                   :key="index"
                 >
-                  <div class="column is-2">
+                  <div class="column is-3">
                     <img
                       :src="expertise.source"
                       style="width: 60px; height: 60px;"
                     />
                   </div>
-                  <div class="column is-10">
+                  <div class="column is-9">
                     <progress :class="expertise.class" :value="expertise.expertise" max="100"></progress>
                   </div>
                 </div>
@@ -308,8 +304,5 @@ border-radius: 128px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-}
-body {
-  backgroundColor: red;
 }
 </style>

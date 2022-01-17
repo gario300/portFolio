@@ -21,7 +21,8 @@ export default {
 .background {
 height: 100vh;
 position: absolute;
-width: 100%
+max-width: 100%;
+width: 100%;
 }
 body {
 overflow: hidden;

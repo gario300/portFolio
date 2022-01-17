@@ -1,7 +1,9 @@
 <template>
   <div style="max-width: 100%; overflow: hidden;">
-    <Nigth v-if="nigth && nigth !== ''" />
-    <Day v-if="!nigth && nigth !== ''" />
+    <div style="width: 100%; max-width: 100%; overflow-x: hidden;">
+      <Nigth v-if="nigth && nigth !== ''" />
+      <Day v-if="!nigth && nigth !== ''" />
+    </div>
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-half">

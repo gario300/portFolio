@@ -32,7 +32,8 @@ left: 0;
 overflow: hidden;
 position: absolute;
 top: 0;
-width: 100vw;
+width: 100%;
+max-width: 100%;
 }
 #layers .layer {
 background-size: auto 100%;
@@ -43,7 +44,8 @@ left: 0;
 position: absolute;
 top: 0;
 transform: translate3d(0, 0, 0);
-width: 200vw;
+width: 100%;
+max-width: 100%;
 }
 @keyframes twinkle {
 from { opacity: .3; }

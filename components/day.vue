@@ -23,9 +23,7 @@ height: 100vh;
 position: absolute;
 max-width: 100%;
 width: 100%;
-}
-body {
-overflow: hidden;
+overflow-x: hidden
 }
 #clouds{
 padding: 100px 0;

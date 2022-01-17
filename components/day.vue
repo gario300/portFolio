@@ -19,9 +19,9 @@ export default {
 <style scoped>
 *{ margin: 0; padding: 0;}
 .background {
-height: 215vh;
+height: 100vh;
 position: absolute;
-width: 500%
+width: 100%
 }
 body {
 overflow: hidden;

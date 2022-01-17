@@ -1,16 +1,16 @@
 <template>
   <div>
     <div
-      style="width: '100%';"
+      style="width: 100%;"
     >
       <Nigth v-if="nigth && nigth !== ''" />
       <Day v-if="!nigth && nigth !== ''" />
     </div>
     <div class="container">
       <div class="columns is-centered">
-        <div class="column is-half mt-5">
+        <div class="column is-half">
           <div
-            class="box"
+            class="box mt-5"
             :style="{ backgroundColor: nigth ? '#211C2F' : 'white'}"
           >
             <div class="columns is-centered">
@@ -34,10 +34,10 @@
                 </h2>
               </div>
             </div>
-            <div class="columns is-centered">
+            <div class="columns is-centered is-mobile">
               <div
                 v-for="(social, index) in socials"
-                class="column is-1"
+                class="column is-2"
                 :key="index"
               >
                 <a :href="social.url" target="_blank">
@@ -256,10 +256,8 @@ export default {
       ]
     }
   },
-  created () {
-    this.getTime()
-  },
   mounted () {
+    this.getTime()
     setInterval(() => {
       this.getTime()
     }, 120000)
@@ -270,8 +268,10 @@ export default {
       hour = parseInt(hour)
       if (hour < 18 && hour > 6) {
         this.nigth = false
+        document.body.style.background = 'white'
       } else if (hour >= 18 || hour <= 6) {
         this.nigth = true
+        document.body.style.background = '#373C94'
       }
     },
     overedElement (index, over) {
@@ -308,5 +308,8 @@ border-radius: 128px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+body {
+  backgroundColor: red;
 }
 </style>

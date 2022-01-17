@@ -20,9 +20,9 @@ export default {
 .background{
 background: linear-gradient(0deg, #383d95, #040d30 90%) no-repeat #383d95;
 margin: 0;
-height: 215vh;
+height: 100vh;
 position: absolute;
-width: 200%
+width: 100%
 }
 #layers {
 height: 200px;

@@ -1,7 +1,11 @@
 <template>
   <div>
-    <Nigth v-if="nigth && nigth !== ''" />
-    <Day v-if="!nigth && nigth !== ''" />
+    <div
+      style="width: '100%';"
+    >
+      <Nigth v-if="nigth && nigth !== ''" />
+      <Day v-if="!nigth && nigth !== ''" />
+    </div>
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-half mt-5">
@@ -53,7 +57,7 @@
             <div
               v-for="(job, index) in jobs"
               :key="index"
-              class="column is-4"
+              class="column is-6"
             >
               <div
                 class="box"
@@ -78,7 +82,7 @@
                     </h2>
                     <p
                       :style="{ color: !nigth ? '#211C2F' : 'white'}"
-                      class="is-size-5"
+                      class="is-size-5 mb-5"
                     >
                       {{ job.description }}
                     </p>
@@ -154,7 +158,7 @@
         <div class="column is-3">
           <a
             class="twitter-timeline"
-            data-height="800"
+            data-height="900"
             :data-theme="nigth ? 'dark' : 'light'"
             href="https://twitter.com/TopCat34744994?ref_src=twsrc%5Etfw"
           >
@@ -264,10 +268,9 @@ export default {
     getTime () {
       let hour = moment().format('HH')
       hour = parseInt(hour)
-      console.log(hour)
       if (hour < 18 && hour > 6) {
         this.nigth = false
-      } else if (hour >= 18 && hour <= 6) {
+      } else if (hour >= 18 || hour <= 6) {
         this.nigth = true
       }
     },
@@ -301,7 +304,7 @@ border-radius: 128px;
 }
 .box-image-content-hovered {
   opacity: 1;
-  height: 280px;
+  height: 300px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

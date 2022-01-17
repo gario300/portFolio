@@ -17,7 +17,7 @@ const jobs = [
     name: 'PETRA CENTRAL',
     picture: require('./../static/petraCentral.jpeg'),
     description:
-      'Petra central is a SPA making with Nuxt(Vue) this application get all emergences send by PETRA APP and manages them according to urban security protocols',
+      'Petra central is a SPA maked with Nuxt(Vue) this application get all emergences send by PETRA APP and manages them according to urban security protocols',
     technologies: [
       'Vue',
       'Nuxt',
@@ -54,7 +54,7 @@ const jobs = [
     name: 'HomeWatcher App',
     picture: require('./../static/homeWarcherApp.png'),
     description:
-      "HomeWatcher's an mobile app maked using react-native modern standarts with hooks and expo client. this app share a position point at the map for a emergence central",
+      "HomeWatcher's a mobile app maked using react-native modern standars with hooks and expo client. this app share a position point at the map for a emergence central",
     technologies: [
       'React Native',
       'Expo',
@@ -67,7 +67,7 @@ const jobs = [
     name: 'HomeWatcher Central',
     picture: require('./../static/homeWatcherCentral.png'),
     description:
-      'HomeWatcher central is a SPA making with Nuxt(Vue) this application get all emergences send by HomeWatcher and manages them according to urban security protocols',
+      'HomeWatcher central is a SPA maked with Nuxt(Vue) this application get all emergences send by HomeWatcher and manages them according to urban security protocols',
     technologies: [
       'Vue',
       'Nuxt',

@@ -91,6 +91,12 @@
                     >
                       {{ technologie }}
                     </span>
+                    <button
+                      @click="renderModal(true, job)"
+                      class="button is-success is-fullwidth mt-4"
+                    >
+                      Ver más
+                    </button>
                   </div>
                 </div>
               </div>
@@ -193,7 +199,13 @@
           </h3>
         </div>
       </div>
+      <div  style="padding: 15px;" />
     </div>
+    <ModalDetail
+      v-if="openModal"
+      :closeModal="renderModal"
+      :detailObject="defaultJob"
+    />
   </div>
 </template>
 
@@ -202,9 +214,10 @@ import moment from 'moment'
 import Day from '../components/day.vue'
 import Nigth from '../components/nigth.vue'
 import jobs from '../utils/jobs'
+import ModalDetail from '../components/modalDetails.vue'
 export default {
   name: 'IndexPage',
-  components: { Day, Nigth },
+  components: { Day, Nigth, ModalDetail },
   data () {
     return {
       nigth: '',
@@ -251,7 +264,14 @@ export default {
           expertise: 75,
           class: 'progress is-warning'
         }
-      ]
+      ],
+      openModal: false,
+      defaultJob: {
+        name: '',
+        picture: '',
+        description: '',
+        technologies: []
+      }
     }
   },
   mounted () {
@@ -280,6 +300,13 @@ export default {
       setTimeout(() => {
         this.jobs.splice(index, 1, newElement)
       }, !over ? 200 : 0)
+    },
+    renderModal (open, objectd) {
+      if (open) {
+        this.defaultJob = objectd
+      }
+      this.openModal = open
+      document.documentElement.style.overflow = open ? 'hidden' : 'auto'
     }
   }
 }

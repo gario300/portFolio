@@ -11,7 +11,11 @@ const jobs = [
       'Google Apis',
       'Adonis(Node, for backend)'
     ],
-    over: false
+    over: false,
+    morePictures: [
+      require('./../static/petraa1.png'),
+      require('./../static/petraa2.png')
+    ]
   },
   {
     name: 'PETRA CENTRAL',
@@ -25,7 +29,8 @@ const jobs = [
       'Adonis(Node, share backend whit PETRA APP)',
       'Google Apis'
     ],
-    over: false
+    over: false,
+    morePictures: []
   },
   {
     name: 'Scute',
@@ -37,7 +42,11 @@ const jobs = [
       'Nuxt',
       'Adonis(Node, for backend)'
     ],
-    over: false
+    over: false,
+    morePictures: [
+      require('./../static/scutew2.jpg'),
+      require('./../static/scutew3.jpg')
+    ]
   },
   {
     name: 'Blob',
@@ -48,7 +57,12 @@ const jobs = [
       'Google Apis',
       'Firebase(Live Chat)'
     ],
-    over: false
+    over: false,
+    morePictures: [
+      require('./../static/b1.png'),
+      require('./../static/b2.png'),
+      require('./../static/b3.png')
+    ]
   },
   {
     name: 'HomeWatcher App',
@@ -61,7 +75,8 @@ const jobs = [
       'Firebase(Live updates)',
       'Google Apis'
     ],
-    over: false
+    over: false,
+    morePictures: []
   },
   {
     name: 'HomeWatcher Central',
@@ -75,7 +90,38 @@ const jobs = [
       'Google Apis',
       'Firebase(Live Updates)'
     ],
-    over: false
+    over: false,
+    morePictures: []
+  },
+  {
+    name: 'Control Tower',
+    picture: require('./../static/ct2.png'),
+    description: "Control Tower's a mobile app maked at React Native for internal deliveries and route monitoring",
+    technologies: [
+      'React Native',
+      'i18next',
+      'Geolocalization',
+      'Google Apis',
+      'Qr'
+    ],
+    over: false,
+    morePictures: [
+      require('../static/ct1.png'),
+      require('./../static/ct3.png')
+    ]
+  },
+  {
+    name: 'Busco',
+    picture: require('./../static/busco.jpeg'),
+    description: 'Busco is a mobile app maked for to find local businesses like a bulleting board',
+    technologies: [
+      'React Native',
+      'Geolocalization',
+      'Google Apis'
+    ],
+    over: false,
+    morePictures: [
+    ]
   }
 ]
 

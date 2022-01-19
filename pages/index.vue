@@ -205,6 +205,7 @@
       v-if="openModal"
       :closeModal="renderModal"
       :detailObject="defaultJob"
+      :nigth="nigth"
     />
   </div>
 </template>

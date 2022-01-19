@@ -1,30 +1,51 @@
 <template>
   <div>
     <div class="modalLocal">
-      <div class="modal-card">
-        <header class="modal-card-head">
-          <p class="modal-card-title">{{ detailObject.name}}</p>
+      <div
+        class="modal-card"
+      >
+        <header
+          class="modal-card-head"
+          :style="{ backgroundColor: nigth ? '#292F33' : 'white'}"
+        >
+          <p
+            :style="{ color: !nigth ? '#211C2F' : 'white'}"
+            class="modal-card-title"
+          >
+            {{ detailObject.name}}
+          </p>
           <button
             @click="closeModal(false)"
             class="delete"
             aria-label="close"
           />
         </header>
-        <section class="modal-card-body">
+        <section
+          class="modal-card-body"
+          :style="{ backgroundColor: nigth ? '#211C2F' : 'white'}"
+        >
           <div class="columns is-centered">
             <div class="column is-half">
               <img
                 :src="detailObject.picture"
-                style="width: 100%; height: auto;"
+                style="width: 100%; height: auto; border-radius: 5px;"
               />
             </div>
           </div>
           <div class="columns">
             <div class="column is-12">
               <span>
-                <h3 class="title is-4">Description:</h3>
+                <h3
+                  :style="{ color: !nigth ? '#211C2F' : 'white'}"
+                  class="title is-4"
+                >
+                  Description:
+                </h3>
               </span>
-              <p class="is-size-5 mb-5">
+              <p
+                :style="{ color: !nigth ? '#211C2F' : 'white'}"
+                class="is-size-5 mb-5"
+              >
                 {{ detailObject.description }}
               </p>
               <span
@@ -53,7 +74,10 @@
             </div>
           </div>
         </section>
-        <footer class="modal-card-foot">
+        <footer
+          class="modal-card-foot"
+          :style="{ backgroundColor: nigth ? '#292F33' : 'white'}"
+        >
         </footer>
       </div>
     </div>
@@ -70,6 +94,10 @@ export default {
     },
     detailObject: {
       type: Object,
+      required: true
+    },
+    nigth: {
+      type: Boolean,
       required: true
     }
   }

@@ -13,7 +13,14 @@
           >
             <div class="columns is-centered">
               <div class="column is-12" style="display: flex; justify-content: center;">
-                <div id="avatar" />
+                <div
+                  style="width: 128px; height: 128px; display: flex; justify-content: center; align-items: center"
+                >
+                  <div
+                    v-lazy:background-image="require('./../static/antonio.jpg')"
+                    id="avatar"
+                  />
+                  </div>
               </div>
             </div>
             <div class="columns is-centered">
@@ -32,15 +39,18 @@
                 </h2>
               </div>
             </div>
-            <div class="columns is-centered is-mobile">
+            <div
+              class="columns is-centered is-mobile"
+              style="width: 100%; display: flex; justify-content: center;"
+            >
               <div
                 v-for="(social, index) in socials"
-                class="column is-2"
                 :key="index"
+                style="margin: 12px;"
               >
                 <a :href="social.url" target="_blank">
                   <img
-                    :src="social.source"
+                    v-lazy="social.source"
                     style="width: 25px; height: 25px;"
                   />
                 </a>
@@ -64,9 +74,14 @@
                 @mouseleave="overedElement(index, false)"
               >
                 <div
-                  :class="!job.over ? 'box-image-content' : 'box-image-content-hovered'"
-                  :style="{ 'background-image': 'url(' + job.picture + ')' }"
-                />
+                  style="display: flex; align-items: center; justify-content: center; width: 100%;"
+                  :style="{height: job.over ? 150 : 300}"
+                >
+                  <div
+                    :class="!job.over ? 'box-image-content' : 'box-image-content-hovered'"
+                    v-lazy:background-image="job.picture"
+                  />
+                </div>
                 <div
                   v-if="job.over"
                   class="columns mt-3"
@@ -146,12 +161,14 @@
                   :key="index"
                 >
                   <div class="column is-3">
-                    <img
-                      :src="expertise.source"
-                      style="width: 60px; height: 60px;"
-                    />
+                    <div style="width: 60px; height: 60px; align-items: center; justify-content: center;">
+                      <img
+                        v-lazy="expertise.source"
+                        class="expertiseImg"
+                      />
+                    </div>
                   </div>
-                  <div class="column is-9">
+                  <div class="column is-9 is-half">
                     <progress :class="expertise.class" :value="expertise.expertise" max="100"></progress>
                   </div>
                 </div>
@@ -160,6 +177,37 @@
           </div>
         </div>
         <div class="column is-3">
+          <div
+            class="box"
+            :style="{ backgroundColor: nigth ? '#211C2F' : 'white'}"
+          >
+            <div class="columns">
+              <div class="column is-12">
+                <div
+                  v-for="(repository, index) of repositories"
+                  class="columns is-mobile is-vcentered"
+                  :key="index"
+                >
+                  <div class="column is-3">
+                    <img
+                      v-lazy="repository.image"
+                      style="width: 45px; height: 45px;"
+                    />
+                  </div>
+                  <div class="column is-9">
+                    <a
+                      :style="{ color: !nigth ? '#211C2F' : 'white'}"
+                      class="title is-4"
+                      :href="repository.url"
+                      target="_blank"
+                    >
+                      {{ repository.name }}
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
           <a
             class="twitter-timeline"
             data-height="900"
@@ -272,7 +320,19 @@ export default {
         picture: '',
         description: '',
         technologies: []
-      }
+      },
+      repositories: [
+        {
+          name: 'Gario300',
+          image: require('../static/githubLogo.png'),
+          url: 'https://github.com/gario300/'
+        },
+        {
+          name: 'Scute300',
+          image: require('../static/githubLogo.png'),
+          url: 'https://github.com/scute300/'
+        }
+      ]
     }
   },
   mounted () {
@@ -314,19 +374,36 @@ export default {
 </script>
 <style scoped>
 #avatar {
-background-image: url('../static/antonio.jpg');
 background-position: center;
 background-size: cover;
 width: 128px;
 height: 128px;
 border-radius: 128px;
 }
+#avatar[lazy=loading] {
+  width: 32px;
+  height: 32px;
+}
 .box-image-content {
   height: 150px;
+  width: 100%;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.6
+  opacity: 0.6;
+  border-radius: 8px;
+}
+.box-image-content[lazy=loading]{
+  width: 32px;
+  height: 32px;
+}
+.expertiseImg {
+  width: 60px;
+  height: 60px;
+}
+.expertiseImg[lazy=loading]{
+  width: 32px;
+  height: 32px;
 }
 .box-image-content-hovered {
   opacity: 1;
@@ -334,5 +411,7 @@ border-radius: 128px;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 8px;
+  width: 100%;
 }
 </style>

@@ -23,7 +23,7 @@ margin: 0;
 height: 100vh;
 position: absolute;
 max-width: 100%;
-width: 100%;
+width: 300%;
 overflow-x: hidden;
 }
 #layers {

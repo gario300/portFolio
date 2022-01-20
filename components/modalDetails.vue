@@ -26,10 +26,12 @@
         >
           <div class="columns is-centered">
             <div class="column is-half">
-              <img
-                :src="detailObject.picture"
-                style="width: 100%; height: auto; border-radius: 5px;"
-              />
+              <div class="pictureContainer">
+                <img
+                  v-lazy="detailObject.picture"
+                  class="picture"
+                />
+              </div>
             </div>
           </div>
           <div class="columns">
@@ -66,10 +68,12 @@
               <div
                 style="height: 300px;"
               >
-                <img
-                  :src="photo"
-                  style="height: 100%; width: auto; border-radius: 5px;"
-                />
+                <div class="pictureContainer">
+                  <img
+                    v-lazy="photo"
+                    class="picture"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -117,6 +121,23 @@ export default {
   align-items: center;
   width: 100%;
   overflow-y: hidden;
+}
+.picture {
+  width: auto;
+  height: 100%;
+  border-radius: 8px;
+}
+.picture[lazy=loading]{
+  width: 32px;
+  height: 32px;
+}
+.pictureContainer {
+  width: auto;
+  height: 100%;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .modalInd {
   background: #FFFFFF;

@@ -337,21 +337,11 @@ export default {
   },
   mounted () {
     this.getTime()
-    setInterval(() => {
-      this.getTime()
-    }, 120000)
   },
   methods: {
     getTime () {
-      let hour = moment().format('HH')
-      hour = parseInt(hour)
-      if (hour < 18 && hour > 6) {
-        this.nigth = false
-        document.body.style.background = 'white'
-      } else if (hour >= 18 || hour <= 6) {
-        this.nigth = true
-        document.body.style.background = '#373C94'
-      }
+      this.nigth = true
+      document.body.style.background = '#373C94'
     },
     overedElement (index, over) {
       const newElement = {

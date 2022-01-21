@@ -68,10 +68,11 @@
               class="column is-6"
             >
               <div
-                class="box"
+                class="box all-jobs"
                 :style="{ backgroundColor: nigth ? '#211C2F' : 'white'}"
                 @mouseover="overedElement(index, true)"
                 @mouseleave="overedElement(index, false)"
+                @click="renderModal(true, job)"
               >
                 <div
                   style="display: flex; align-items: center; justify-content: center; width: 100%;"
@@ -99,19 +100,6 @@
                     >
                       {{ job.description }}
                     </p>
-                    <span
-                      v-for="(technologie, index) in job.technologies"
-                      class="tag is-primary mx-1"
-                      :key="index"
-                    >
-                      {{ technologie }}
-                    </span>
-                    <button
-                      @click="renderModal(true, job)"
-                      class="button is-success is-fullwidth mt-4"
-                    >
-                      Ver más
-                    </button>
                   </div>
                 </div>
               </div>
@@ -140,38 +128,6 @@
                   ubuntu server or debian 9 using Digital Ocean; Experience at cloud microservices
                   like stripe, Google Cloud Apis, Facebook and twitter Apis.
                 </p>
-              </div>
-            </div>
-          </div>
-          <div class="columns">
-            <div class="column is-12">
-              <div
-                class="box"
-                :style="{ backgroundColor: nigth ? '#211C2F' : 'white'}"
-              >
-                <h2
-                  :style="{ color: !nigth ? '#211C2F' : 'white'}"
-                  class="title is-2"
-                >
-                  Expertise
-                </h2>
-                <div
-                  v-for="(expertise, index) in expertises"
-                  class="columns is-vcentered is-mobile is-gapless"
-                  :key="index"
-                >
-                  <div class="column is-3">
-                    <div style="width: 60px; height: 60px; align-items: center; justify-content: center;">
-                      <img
-                        v-lazy="expertise.source"
-                        class="expertiseImg"
-                      />
-                    </div>
-                  </div>
-                  <div class="column is-9 is-half">
-                    <progress :class="expertise.class" :value="expertise.expertise" max="100"></progress>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
@@ -210,7 +166,7 @@
           </div>
           <a
             class="twitter-timeline"
-            data-height="900"
+            data-height="720"
             :data-theme="nigth ? 'dark' : 'light'"
             href="https://twitter.com/TopCat34744994?ref_src=twsrc%5Etfw"
           >
@@ -229,6 +185,50 @@
             picture-in-picture;"
             allowfullscreen
           />
+        </div>
+      </div>
+      <div class="columns">
+        <div class="column is-12">
+          <div class="columns">
+            <div class="column is-12">
+              <h2
+                :style="{ color: !nigth ? '#211C2F' : 'white'}"
+                class="title is-1 has-text-centered"
+              >
+                Expertise
+              </h2>
+            </div>
+          </div>
+          <div class="columns is-multiline">
+            <div
+              class="column is-6"
+              v-for="(expertise, index) in expertises"
+              :key="index"
+            >
+              <div
+                class="box"
+                :style="{ backgroundColor: nigth ? '#211C2F' : 'white'}"
+              >
+                <div
+                  class="columns is-centered"
+                >
+                  <div class="column is-narrow">
+                    <div style="width: 65px; height: 65px; align-items: center; justify-content: center;">
+                      <img
+                        v-lazy="expertise.source"
+                        class="expertiseImg"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="columns is-centered">
+                  <div class="column is-12">
+                    <progress :class="expertise.class" :value="expertise.expertise" max="100"></progress>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       <div class="columns is-centered">
@@ -259,7 +259,6 @@
 </template>
 
 <script>
-import moment from 'moment'
 import Day from '../components/day.vue'
 import Nigth from '../components/nigth.vue'
 import jobs from '../utils/jobs'
@@ -388,8 +387,8 @@ border-radius: 128px;
   height: 32px;
 }
 .expertiseImg {
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
 }
 .expertiseImg[lazy=loading]{
   width: 32px;
@@ -403,5 +402,9 @@ border-radius: 128px;
   background-size: cover;
   border-radius: 8px;
   width: 100%;
+}
+
+.all-jobs {
+  cursor: pointer !important;
 }
 </style>

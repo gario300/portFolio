@@ -23,7 +23,7 @@ margin: 0;
 height: 100vh;
 position: absolute;
 max-width: 100%;
-width: 300%;
+width: 100%;
 overflow-x: hidden;
 }
 #layers {
@@ -32,8 +32,8 @@ left: 0;
 overflow: hidden;
 position: absolute;
 top: 0;
-width: 100%;
-max-width: 100%;
+width: 300%;
+max-width: 300%;
 }
 #layers .layer {
 background-size: auto 100%;

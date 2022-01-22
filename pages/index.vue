@@ -250,7 +250,7 @@
       <div  style="padding: 15px;" />
     </div>
     <ModalDetail
-      v-if="openModal"
+      :active="openModal"
       :closeModal="renderModal"
       :detailObject="defaultJob"
       :nigth="nigth"
@@ -292,25 +292,33 @@ export default {
           name: 'React Native',
           source: require('../static/react-native-logo.png'),
           expertise: 100,
-          class: 'progress is-info'
+          class: 'progress is-info',
+          over: false,
+          init: 0
         },
         {
           name: 'React',
           source: require('../static/react.png'),
           expertise: 90,
-          class: 'progress is-info'
+          class: 'progress is-info',
+          over: false,
+          init: 0
         },
         {
           name: 'Vue',
           source: require('../static/vueJS.png'),
           expertise: 80,
-          class: 'progress is-success'
+          class: 'progress is-success',
+          over: false,
+          init: 0
         },
         {
           name: 'Adonis',
           source: require('../static/13810373.png'),
           expertise: 75,
-          class: 'progress is-warning'
+          class: 'progress is-warning',
+          over: false,
+          init: 0
         }
       ],
       openModal: false,
@@ -387,8 +395,8 @@ border-radius: 128px;
   height: 32px;
 }
 .expertiseImg {
-  width: 65px;
-  height: 65px;
+  width: 100%;
+  height: 100%;
 }
 .expertiseImg[lazy=loading]{
   width: 32px;

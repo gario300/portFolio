@@ -1,21 +1,16 @@
 <template>
   <div>
-
+    <a
+      :href="`almacenmeta://${this.$route.params.id}`"
+    >
+      Open nink
+    </a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'OpenLinking',
-  mounted () {
-    this.openLink()
-  },
-  methods: {
-    openLink () {
-      console.log(this.$route.params)
-      window.open('exp://' + this.$route.params.id, '_self')
-    }
-  }
+  name: 'OpenLinking'
 }
 </script>
 

@@ -13,7 +13,7 @@ export default {
   methods: {
     openLink () {
       console.log(this.$route.params)
-      window.open('almacenmeta://' + this.$route.params.id, '_self')
+      window.open('exp://' + this.$route.params.id, '_self')
     }
   }
 }
